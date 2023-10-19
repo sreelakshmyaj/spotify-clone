@@ -1,9 +1,14 @@
 import './App.css';
+import Login from './Pages/Login';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Login />
+      </div>
+    </BrowserRouter>
   );
 }
 

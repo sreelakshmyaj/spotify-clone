@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+a, a:visited, a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+.login {
+    max-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.login__sidebar {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+.login__sidebarBox {
+    background-color: #121212;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.login__sidebarBoxItem {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.login__sidebarBoxItem:hover {
+    opacity: 1;
+}
+
+.login__sidebarBoxItem span {
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.login__container {
+    flex: 2;
+}
+
+.login__footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-image: linear-gradient(to right, #e400f0, #03819e);
+    padding: 1rem;
+}
+
+/* HomePreview.js */
+
+.homepreview {
+    margin: 1rem;
+}
+
+.homepreview__header {
+    background-color: #121212;
+    width: 100%;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.primary-btn {
+    color: hsla(0, 0%, 100%, 0.8);
+    padding: 0.8rem 1.2rem;
+}
+
+.primary-btn:hover {
+    color: #fff;
+    font-weight: bold;
+}
+
+.secondary-btn {
+    color: #000;
+    background-color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+}
+
+.secondary-btn:hover {
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.homepreview__container {
+    padding: 1rem;
+    background-color: #242424;
+    background-image: linear-gradient(#242424, #000);
+    overflow-y: scroll;
+    max-height: 80vh;
+}
+
+/* Style the scrollbar track */
+.homepreview__container::-webkit-scrollbar {
+    width: 12px; 
+}
+  
+.homepreview__container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.homepreview__container::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3;
+    opacity: 0.8;
+}
+  
+
+.homepreview__containerMusic {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* MusicCard.js */
+
+.card {
+    width: 180px;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    background-color: #242424;
+}
+
+.card img {
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card small {
+    display: block;
+    color: #b3b3b3;
+    margin-top: 0.8rem;
+}
+
+.card__cover {
+    position: relative;
+}
+
+.play-icon {
+    color: #000;
+    background-color: #1db954;
+    padding: 10px;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    z-index: -1;
+}
