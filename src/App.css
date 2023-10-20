@@ -31,37 +31,37 @@ button {
     display: flex;
 }
 
-.login__sidebar {
+.sidebar {
     width: 350px;
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    min-height: 100vh;
+    height: 100vh;
 }
 
-.login__sidebarBox {
+.sidebar__box {
     background-color: #121212;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
     border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
-.login__sidebarBoxItem {
+.sidebar__boxItem {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
     opacity: 0.8;
     cursor: pointer;
 }
 
-.login__sidebarBoxItem:hover {
+.sidebar__boxItem:hover {
     opacity: 1;
 }
 
-.login__sidebarBoxItem span {
+.sidebar__boxItem span {
     font-weight: bold;
     margin-left: 1rem;
 }
@@ -189,4 +189,44 @@ button {
     bottom: 30px;
     right: 10px;
     z-index: -1;
+}
+
+/* PLayer.js */
+.player__body {
+    display: flex;
+}
+
+.body {
+    background-image: linear-gradient(#242424, #000);
+    flex: 2;
+    padding: 2rem;
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 72px;
+    width: 100%;
+    padding: 20px;
+    background-color: #000;
+}
+
+.playlist {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.playlist p {
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.playlist:hover {
+    background-color: #242424;
 }

@@ -33,6 +33,13 @@ function App() {
           user: user,
         });
       });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLIST',
+          playlists: playlists
+        })
+      })
     }
     
   }, []);
@@ -42,7 +49,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {
-          token ? <Player /> : <Login />
+          token ? <Player spotify={spotify} /> : <Login />
         }
       </div>
     </BrowserRouter>
