@@ -1,38 +1,48 @@
-import React, { useState,useEffect } from "react";
+import React, { useEffect } from "react";
 import './App.css';
 import Login from './Pages/Login';
 import { BrowserRouter } from 'react-router-dom';
 import { getTokenFromUrl } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
+import Player from "./Pages/Player";
+import { useDateLayerValue } from "./DataLayer";
 
 const spotify = new SpotifyWebApi();
 
 function App() {
 
-  const [token, setToken] = useState(null);
+  const [{ token }, dispatch] = useDateLayerValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
     window.location.hash = "";
 
-    const _token = hash.access_token;
+      let _token = hash.access_token;
 
     if (_token) {
-      setToken(_token);
+      console.log(_token);
+      dispatch({
+        type: 'SET_TOKEN',
+        token: _token
+      })
       spotify.setAccessToken(_token);
+
+      spotify.getMe().then((user) => {
+        dispatch({
+          type: 'SET_USER',
+          user: user,
+        });
+      });
     }
     
-  }, [])
+  }, []);
+
 
   return (
     <BrowserRouter>
       <div className="App">
         {
-          token ? (
-            <h1>Logged In</h1>
-          ) : (
-            <Login />
-          )
+          token ? <Player /> : <Login />
         }
       </div>
     </BrowserRouter>
