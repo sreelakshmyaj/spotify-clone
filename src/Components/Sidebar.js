@@ -8,8 +8,7 @@ import PlaylistOption from './PlaylistOption'
 
 const Sidebar = () => {
 
-    const [ {token, playlists} ] = useDateLayerValue();
-    console.log(playlists)
+    const [ {token, playlists, favorites} ] = useDateLayerValue();
 
   return (
     <div className='sidebar'>
@@ -46,6 +45,12 @@ const Sidebar = () => {
                                         <PlaylistOption 
                                             title={playlist.name}
                                             image={playlist.images[2].url}
+                                        />
+                                    ))}
+                                    {favorites.map((item) => (
+                                        <PlaylistOption
+                                            title={item?.name}
+                                            image={item?.images[0].url}
                                         />
                                     ))}
                                 </div>

@@ -1,11 +1,29 @@
-import { ArrowBackIosRounded, FavoriteBorderOutlined, PermIdentityRounded, PlayArrowRounded  } from '@mui/icons-material'
+import { ArrowBackIosRounded, Dialpad, Favorite, FavoriteBorderOutlined, PermIdentityRounded, PlayArrowRounded  } from '@mui/icons-material'
 import { Avatar, Tooltip } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { useDateLayerValue } from '../DataLayer'
 
 const Body = () => {
-  const [{user, megahitmix}] = useDateLayerValue();
+  const [{user, megahitmix, favorites}, dispatch] = useDateLayerValue();
+  const [isSelected, setIsSelected] = useState(false);
   console.log(megahitmix)
+
+  const toggleLibrary = () => {
+    setIsSelected(!isSelected);
+    if (!isSelected) {
+      dispatch({
+        type: 'ADD_TO_LIBRARY',
+        playlist: megahitmix
+      })
+    }
+    else {
+      dispatch({
+        type: 'REMOVE_FROM_LIBRARY',
+        id: megahitmix.id
+      })
+    }
+  }
+
   return (
     <div className='body'>
         <div className='body__headSection'>
@@ -33,9 +51,15 @@ const Body = () => {
         <div className='body__container'>
           <div className='body__containerHeader'>
             <PlayArrowRounded className='play-icon'/>
-            <Tooltip title="Save to your Library" placement='top'>
-              <FavoriteBorderOutlined className='heart-icon'/>
-            </Tooltip>
+
+              {isSelected? 
+                (<Tooltip title="Save To Your Library" placement='top'>
+                  <Favorite className='heart-icon selected' onClick={toggleLibrary}/>
+                </Tooltip>)
+                :(
+                  <Tooltip title="Remove From Your Library" placement='top'>
+                    <FavoriteBorderOutlined className='heart-icon' onClick={toggleLibrary} />
+                  </Tooltip>)}
           </div>
           <div className='body__containerSongs'>
             {megahitmix?.tracks.items.map((item, index) => (

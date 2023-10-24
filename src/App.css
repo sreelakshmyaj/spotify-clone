@@ -363,7 +363,7 @@ button {
     margin-top: 2rem;
     background-image: linear-gradient(hsla(0, 0%, 0%, 0.173), #000);
     backdrop-filter: blur(20px);
-    overflow-y: scroll;
+    overflow-y: overlay;
     max-height: 100%;
 }
 
@@ -397,6 +397,11 @@ button {
 .body__containerHeader .heart-icon:hover {
     opacity: 1;
     transform: scale(1.1);
+}
+
+.body__containerHeader .heart-icon.selected {
+    color: #1db954;
+    opacity: 1;
 }
 
 .song {

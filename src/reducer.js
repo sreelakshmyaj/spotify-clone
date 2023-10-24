@@ -4,7 +4,8 @@ export const initialState = {
     playlists: [],
     playing: false,
     item: null,
-    megahitmix: null
+    megahitmix: null,
+    favorites: []
 };
 
 const reducer = (state, action) => {
@@ -29,6 +30,23 @@ const reducer = (state, action) => {
                 ...state, 
                 megahitmix: action.megahitmix
             }
+        case 'ADD_TO_LIBRARY':
+            return {
+                ...state,
+                favorites: [...state.favorites, action.playlist]
+            }
+        case 'REMOVE_FROM_LIBRARY':
+            let newFavorites = [...state.favorites];
+            const index = state.favorites.findIndex((favItem) => 
+                favItem.id === action.id
+            )
+            if (index >= 0) {
+                newFavorites.splice(index, 1);
+            }
+            return {
+                ...state, 
+                favorites: newFavorites
+            };
         default:
             return state;
     }
