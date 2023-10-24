@@ -178,13 +178,17 @@ button {
     position: relative;
 }
 
-.card__cover .play-icon {
+.card__cover .play-icon,
+.body__container .play-icon {
     color: #000;
     background-color: #1db954;
     padding: 10px;
     width: 45px !important;
     height: 45px !important;
     border-radius: 50%;
+}
+
+.card__cover .play-icon {
     position: absolute;
     bottom: 30px;
     right: 10px;
@@ -194,15 +198,6 @@ button {
 /* PLayer.js */
 .player__body {
     display: flex;
-}
-
-.body {
-    background-image: linear-gradient(#242424, #000);
-    flex: 2;
-    padding: 2rem;
-    margin: 1rem;
-    margin-left: 0;
-    border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .playlist {
@@ -300,4 +295,168 @@ button {
 .highlight__green {
     color: #1db954;
     opacity: 1 !important;
+}
+
+/* Body.js */
+
+.body {
+    background-image: linear-gradient(rgb(136, 198, 255), #000);
+    flex: 2;
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 0.5rem 0.5rem 0 0;
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.body::-webkit-scrollbar {
+    display: none;
+}
+
+.body__headSectionHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.arrow-icon {
+    padding: 8px;
+}
+
+.arrow-icon, 
+.user-icon {
+    background-color: #000;
+    border-radius: 50%;
+    width: 35px !important;
+    height: 35px !important;
+    cursor: pointer
+}
+
+.body__headSectionBanner {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.body__headSectionBanner .text {
+    width: 100%;
+}
+
+.body__headSectionBanner .text .title {
+    font-size: 4rem;
+}
+
+.body__headSectionBanner small {
+    font-size: 12px;
+}
+
+.body__headSectionBanner img {
+    width: 20vw;
+    box-shadow: 0 4px 60px #000;
+}
+
+.body__container {
+    margin-top: 2rem;
+    background-image: linear-gradient(hsla(0, 0%, 0%, 0.173), #000);
+    backdrop-filter: blur(20px);
+    overflow-y: scroll;
+    max-height: 100%;
+}
+
+.body__container::-webkit-scrollbar {
+    display: none;
+}
+
+.body__containerHeader {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.body__containerHeader .play-icon {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.body__containerHeader .play-icon:hover {
+    transform: scale(1.1);
+}
+
+.body__containerHeader .heart-icon {
+    width: 30px !important;
+    height: auto !important;
+    margin-left: 1rem;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.body__containerHeader .heart-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.song {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.song td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: default;
+}
+
+.song tr {
+    width: 100%;
+}
+
+.songIndex {
+    padding-left: 10px;
+    width: 40px;
+}
+
+.songImg {
+    width: 50px;
+}
+
+.song img {
+    width: 40px;
+    height: auto;
+}
+
+.song__info {
+    padding-left: 20px;
+    width: 200px;
+}
+
+.song__info p {
+    font-weight: 600;
+}
+
+.song small{
+    display: block;
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.albumName {
+    padding-left: 100px;
+}
+
+tr:hover {
+    background-color: hsla(0, 1%, 51%, 0.523);
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .body__headSectionBanner .text .title {
+        font-size: 200%;
+    }
+    .albumName {
+        display: none;
+    }
 }

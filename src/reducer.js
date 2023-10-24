@@ -1,9 +1,10 @@
 export const initialState = {
     user:null,
-    token: "BQD5BVx4yPa8bFjpXcohbEOUaWAzgJU7_h9zIS_U75JGKFvdwJRLjItNsqoD_Tg4zKdAwquXaEJ4a2gvfJxGS0kcL_jk7VzlmBIcp4GAB4RB6DWOzws0LgXYO50WarN6YSl-XpGrULatwijzsY_VeEPtBPI0YdD9JLknh-rYhbFmTVzh2m-zlR_NzIJ2yq-IrPTE3ImfonP9egFr",
+    token: null,
     playlists: [],
     playing: false,
-    item: null
+    item: null,
+    megahitmix: null
 };
 
 const reducer = (state, action) => {
@@ -22,6 +23,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 playlists: action.playlists
+            }
+        case 'SET_MEGAHITMIX':
+            return {
+                ...state, 
+                megahitmix: action.megahitmix
             }
         default:
             return state;

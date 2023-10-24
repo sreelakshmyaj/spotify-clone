@@ -39,6 +39,13 @@ function App() {
           type: 'SET_PLAYLIST',
           playlists: playlists
         })
+      });
+
+      spotify.getPlaylist('37i9dQZF1DXbYM3nMM0oPk').then((response) => {
+        dispatch({
+          type: 'SET_MEGAHITMIX',
+          megahitmix: response
+        })
       })
     }
     
