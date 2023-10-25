@@ -32,10 +32,11 @@ button {
 }
 
 .sidebar {
-    width: 350px;
+    width: 330px;
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    padding-right: 0;
     height: 100vh;
 }
 
@@ -76,12 +77,14 @@ button {
     bottom: 0;
     background-image: linear-gradient(to right, #e400f0, #03819e);
     padding: 1rem;
+    z-index: 100;
 }
 
 /* HomePreview.js */
 
 .homepreview {
     margin: 1rem;
+    margin-left: 0.5rem;
 }
 
 .homepreview__header {
@@ -141,8 +144,47 @@ button {
 .homepreview__containerMusic {
     margin-top: 2rem;
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.popup {
+    background-image: linear-gradient(#242424, #121212);
+    width: 50%;
+    height: calc(100vh - 300px);
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.popup img {
+    max-width: 25vh;
+}
+
+.popup button {
+    background-color: #1db954;
+    font-weight: 600;
+    width: 150px;
+    margin-top: 2rem;
+}
+
+.popup-close {
+    margin-top: 10px;
+    font-weight: 600;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.popup-close:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.backdrop {
+    flex-direction: column;
 }
 
 /* MusicCard.js */
@@ -354,6 +396,17 @@ button {
     font-size: 12px;
 }
 
+.body__headSectionBanner .details {
+    font-size: 13px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.body__headSectionBanner .details span {
+    margin-inline: 5px;
+    font-size: 16px;
+}
+
 .body__headSectionBanner img {
     width: 20vw;
     box-shadow: 0 4px 60px #000;
@@ -463,5 +516,9 @@ tr:hover {
     }
     .albumName {
         display: none;
+    }
+    .popup {
+        flex-direction: column;
+        height: calc(100vh - 150px);
     }
 }
